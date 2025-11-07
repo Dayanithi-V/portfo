@@ -33,6 +33,19 @@ background-size: 100% 2px;
 
     z-index:1;
 
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+        width: 92vw;
+        height: auto !important; /* override framer-motion inline height */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+    @media (max-width: 480px) {
+        width: 94vw;
+    }
 `
 const SubBox = styled.div`
 width: 50%;
@@ -47,6 +60,27 @@ display: flex;
     width: 100%;
     height: auto;
 }
+
+/* Mobile layout tweaks */
+@media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    .pic{
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        width: 70%;
+        max-width: 320px;
+    }
+}
+@media (max-width: 480px) {
+    .pic{
+        width: 72%;
+        max-width: 280px;
+    }
+}
 `
 
 const Text = styled.div`
@@ -59,11 +93,28 @@ display: flex;
 flex-direction: column;
 justify-content: space-evenly;
 
+/* Typography for mobile */
+@media (max-width: 768px) {
+    font-size: calc(1em + 1vw);
+    padding: 1.25rem 1rem 0.5rem;
+    align-items: center;
+    text-align: center;
+}
+@media (max-width: 480px) {
+    font-size: calc(0.95em + 0.8vw);
+}
+
 &>*:last-child{
     color: ${props => `rgba(${props.theme.bodyRgba},0.6)` };
     font-size: calc(0.5rem + 1.5vw);
     font-weight:300;
 
+}
+
+@media (max-width: 768px) {
+    &>*:last-child{
+        font-size: calc(0.6rem + 1.2vw);
+    }
 }
 
 
