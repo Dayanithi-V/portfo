@@ -35,13 +35,21 @@ background-size: 100% 2px;
 
     /* Mobile adjustments */
     @media (max-width: 768px) {
+        position: static; /* let it flow vertically */
+        left: auto;
+        top: auto;
+        transform: none;
         width: 92vw;
         height: auto !important; /* override framer-motion inline height */
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
+        gap: 1.25rem;
+        padding: 1rem 0.5rem 1.25rem;
+        margin: 0.75rem auto 1rem;
+        background-size: 100% 1px; /* thinner rails on mobile */
+        border-left-width: 1px;
+        border-right-width: 1px;
     }
     @media (max-width: 480px) {
         width: 94vw;
@@ -92,13 +100,17 @@ cursor: pointer;
 display: flex;
 flex-direction: column;
 justify-content: space-evenly;
+row-gap: 0.25rem;
 
 /* Typography for mobile */
 @media (max-width: 768px) {
     font-size: calc(1em + 1vw);
-    padding: 1.25rem 1rem 0.5rem;
+    padding: 1rem 0.75rem 0.25rem;
     align-items: center;
     text-align: center;
+    line-height: 1.35;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
 }
 @media (max-width: 480px) {
     font-size: calc(0.95em + 0.8vw);
@@ -114,6 +126,21 @@ justify-content: space-evenly;
 @media (max-width: 768px) {
     &>*:last-child{
         font-size: calc(0.6rem + 1.2vw);
+    }
+    h1{
+        font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+        margin: 0.25rem 0 0.1rem;
+        font-weight: 700;
+    }
+    h3{
+        font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+        margin: 0.1rem 0 0.35rem;
+        font-weight: 600;
+    }
+    h6{
+        font-size: clamp(0.9rem, 3.8vw, 1.1rem);
+        margin: 0.25rem 0 0;
+        font-weight: 400;
     }
 }
 
