@@ -33,6 +33,18 @@ background-size: 100% 2px;
 
     z-index:1;
 
+    @media (max-width: 768px) {
+        width: 90vw;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        background-size: 100% 2px;
+    }
+
+    @media (max-width: 480px) {
+        width: 92vw;
+        background-size: 100% 1px;
+    }
 `
 const SubBox = styled.div`
 width: 50%;
@@ -47,6 +59,10 @@ display: flex;
     width: 100%;
     height: auto;
 }
+@media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+}
 `
 
 const Text = styled.div`
@@ -58,6 +74,16 @@ cursor: pointer;
 display: flex;
 flex-direction: column;
 justify-content: space-evenly;
+@media (max-width: 768px) {
+    font-size: calc(1em + 1vw);
+    padding: 1.5rem 1rem;
+    align-items: center;
+    text-align: center;
+}
+@media (max-width: 480px) {
+    font-size: calc(0.9em + 0.9vw);
+    padding: 1rem 0.75rem;
+}
 
 &>*:last-child{
     color: ${props => `rgba(${props.theme.bodyRgba},0.6)` };
