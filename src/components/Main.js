@@ -26,6 +26,9 @@ h2,h3,h4,h5,h6{
 
 const Container = styled.div`
 padding: 2rem;
+@media (max-width: 768px) {
+  padding: 1rem;
+}
 `
 
 const Contact = styled.a`
@@ -35,6 +38,10 @@ top: 2rem;
 right: calc(1rem + 2vw);
 text-decoration: none;
 z-index:1;
+@media (max-width: 768px) {
+  top: 1rem;
+  right: 1rem;
+}
 `
 const BLOG = styled(NavLink)`
 color: ${props => props.theme.text};
@@ -44,6 +51,10 @@ right: calc(1rem + 2vw);
 transform: rotate(90deg) translate(-50%, -50%);
 text-decoration: none;
 z-index:1;
+@media (max-width: 768px) {
+  right: 1rem;
+  transform: rotate(90deg) translate(-50%, -50%);
+}
 `
 const WORK = styled(NavLink)`
 color: ${props => props.click ? props.theme.body : props.theme.text};
@@ -54,6 +65,10 @@ left: calc(1rem + 2vw);
 transform: translate(-50%, -50%) rotate(-90deg) ;
 text-decoration: none;
 z-index:1;
+@media (max-width: 768px) {
+  left: 1rem;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
 `
 
 const BottomBar = styled.div`
@@ -65,6 +80,9 @@ width: 100%;
 
 display: flex;
 justify-content: space-evenly;
+@media (max-width: 768px) {
+  bottom: 0.5rem;
+}
 `
 
 const ABOUT = styled(NavLink)`
@@ -110,6 +128,14 @@ transition: all 1s ease;
 &>:last-child{
     display: ${props => props.click ? 'none' :'inline-block'  };
     padding-top: 1rem;
+}
+@media (max-width: 768px) {
+  top: ${props => props.click ? '88%' :'50%'};
+  left: ${props => props.click ? '88%' :'50%'};
+  &>:last-child{
+    padding-top: 0.75rem;
+    font-size: 0.95rem;
+  }
 }
 `
 
