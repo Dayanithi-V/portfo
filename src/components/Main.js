@@ -51,9 +51,12 @@ right: calc(1rem + 2vw);
 transform: rotate(90deg) translate(-50%, -50%);
 text-decoration: none;
 z-index:1;
+ .mobile-label{ display:none; }
 @media (max-width: 768px) {
   right: 1rem;
   transform: rotate(90deg) translate(-50%, -50%);
+  .desktop-label{ display:none; }
+  .mobile-label{ display:inline; }
 }
 `
 const WORK = styled(NavLink)`
@@ -65,9 +68,26 @@ left: calc(1rem + 2vw);
 transform: translate(-50%, -50%) rotate(-90deg) ;
 text-decoration: none;
 z-index:1;
+ .mobile-label{ display:none; }
 @media (max-width: 768px) {
   left: 1rem;
   transform: translate(-50%, -50%) rotate(-90deg);
+  .desktop-label{ display:none; }
+  .mobile-label{ display:inline; }
+}
+`
+
+const RESUME = styled(NavLink)`
+color: ${props => props.theme.text};
+position: absolute;
+top: 25%;
+left: 1rem;
+transform: translate(-50%, -50%) rotate(-90deg);
+text-decoration: none;
+z-index:1;
+display:none;
+@media (max-width: 768px) {
+  display:block;
 }
 `
 
@@ -201,7 +221,8 @@ const Main = () => {
                 whileHover={{scale: 1.1}}
                 whileTap={{scale: 0.9}}
                 >
-                    Blog
+                    <span className="desktop-label">Blog</span>
+                    <span className="mobile-label">Feats</span>
                 </motion.h2>
             </BLOG>
             <WORK to="/work" click={+click}>
@@ -217,9 +238,26 @@ const Main = () => {
                  whileHover={{scale: 1.1}}
                 whileTap={{scale: 0.9}}
                 >
-                    Work
+                    <span className="desktop-label">Work</span>
+                    <span className="mobile-label">Projects</span>
                 </motion.h2>
             </WORK>
+            <RESUME to="/about">
+                <motion.h2
+                initial={{
+                    y:-200,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                animate={{
+                    y:0,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                 whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}
+                >
+                    Resume
+                </motion.h2>
+            </RESUME>
             <BottomBar>
             <ABOUT to="/about" click={+click}>
                 <motion.h2
