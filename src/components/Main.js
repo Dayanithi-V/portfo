@@ -26,9 +26,6 @@ h2,h3,h4,h5,h6{
 
 const Container = styled.div`
 padding: 2rem;
-@media (max-width: 768px) {
-  padding: 1rem;
-}
 `
 
 const Contact = styled.a`
@@ -38,10 +35,6 @@ top: 2rem;
 right: calc(1rem + 2vw);
 text-decoration: none;
 z-index:1;
-@media (max-width: 768px) {
-  top: 1rem;
-  right: 1rem;
-}
 `
 const BLOG = styled(NavLink)`
 color: ${props => props.theme.text};
@@ -51,9 +44,23 @@ right: calc(1rem + 2vw);
 transform: rotate(90deg) translate(-50%, -50%);
 text-decoration: none;
 z-index:1;
+`
+const RESUME = styled(NavLink)`
+color: ${props => props.theme.text};
+position: absolute;
+top: calc(2rem + 10vh);
+left: calc(1.5rem + 1.5vw);
+text-decoration: none;
+z-index: 1;
+writing-mode: vertical-rl;
+text-orientation: mixed;
+
 @media (max-width: 768px) {
-  right: 1rem;
-  transform: rotate(90deg) translate(-50%, -50%);
+  writing-mode: initial;
+  text-orientation: initial;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 `
 const WORK = styled(NavLink)`
@@ -65,24 +72,6 @@ left: calc(1rem + 2vw);
 transform: translate(-50%, -50%) rotate(-90deg) ;
 text-decoration: none;
 z-index:1;
-@media (max-width: 768px) {
-  left: 1rem;
-  transform: translate(-50%, -50%) rotate(-90deg);
-}
-`
-
-const RESUME = styled(NavLink)`
-color: ${props => props.theme.text};
-position: absolute;
-top: 25%;
-left: 1rem;
-transform: translate(-50%, -50%) rotate(-90deg);
-text-decoration: none;
-z-index:1;
-display: none; /* keep desktop unchanged */
-@media (max-width: 768px) {
-  display: block; /* mobile only */
-}
 `
 
 const BottomBar = styled.div`
@@ -94,9 +83,6 @@ width: 100%;
 
 display: flex;
 justify-content: space-evenly;
-@media (max-width: 768px) {
-  bottom: 0.5rem;
-}
 `
 
 const ABOUT = styled(NavLink)`
@@ -142,14 +128,6 @@ transition: all 1s ease;
 &>:last-child{
     display: ${props => props.click ? 'none' :'inline-block'  };
     padding-top: 1rem;
-}
-@media (max-width: 768px) {
-  top: ${props => props.click ? '88%' :'50%'};
-  left: ${props => props.click ? '88%' :'50%'};
-  &>:last-child{
-    padding-top: 0.75rem;
-    font-size: 0.95rem;
-  }
 }
 `
 
@@ -202,6 +180,22 @@ const Main = () => {
                     Say hi..
                 </motion.h2>
             </Contact>
+            <RESUME to="/resume">
+                <motion.h2
+                initial={{
+                    y:-200,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                animate={{
+                    y:0,
+                    transition: { type:'spring', duration: 1.5, delay:1}
+                }}
+                whileHover={{scale: 1.05}}
+                whileTap={{scale: 0.9}}
+                >
+                    Resume
+                </motion.h2>
+            </RESUME>
             <BLOG to="/blog">
                 <motion.h2
                 initial={{
@@ -234,22 +228,6 @@ const Main = () => {
                     Work
                 </motion.h2>
             </WORK>
-            <RESUME to="/about">
-                <motion.h2
-                initial={{
-                    y:-200,
-                    transition: { type:'spring', duration: 1.5, delay:1}
-                }}
-                animate={{
-                    y:0,
-                    transition: { type:'spring', duration: 1.5, delay:1}
-                }}
-                 whileHover={{scale: 1.1}}
-                whileTap={{scale: 0.9}}
-                >
-                    Resume
-                </motion.h2>
-            </RESUME>
             <BottomBar>
             <ABOUT to="/about" click={+click}>
                 <motion.h2
