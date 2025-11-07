@@ -20,16 +20,6 @@ justify-content: space-evenly;
 align-items: center;
 
 
-@media (max-width: 1024px) {
-    padding: 2rem 0;
-}
-@media (max-width: 768px) {
-    height: auto;
-    min-height: 100vh;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 4rem 0 6rem;
-}
 `
 
 const Main = styled.div`
@@ -51,14 +41,6 @@ justify-content: space-between;
 &:hover{
     color: ${props => props.theme.body};
     background-color: ${props => props.theme.text};
-}
-@media (max-width: 1024px) {
-    width: 38vw;
-    height: auto;
-}
-@media (max-width: 768px) {
-    width: 86vw;
-    height: auto;
 }
 `
 
@@ -97,12 +79,6 @@ strong{
 }
 ul,p{
     margin-left: 2rem;
-}
-@media (max-width: 768px) {
-    font-size: calc(0.8em + 0.8vw);
-    ul,p{
-        margin-left: 1rem;
-    }
 }
 `
 

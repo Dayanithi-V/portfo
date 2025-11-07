@@ -19,9 +19,6 @@ const Box = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  @media (max-width: 768px) {
-    height: 300vh;
-  }
 `;
 
 const Main = styled(motion.ul)`
@@ -32,15 +29,6 @@ const Main = styled(motion.ul)`
   display: flex;
 
   color: white;
-  @media (max-width: 1024px) {
-    left: calc(4rem + 10vw);
-  }
-  @media (max-width: 768px) {
-    top: 9rem;
-    left: 1rem;
-    height: auto;
-    gap: 1rem;
-  }
 `;
 const Rotate = styled.span`
   display: block;
@@ -50,10 +38,6 @@ const Rotate = styled.span`
   width: 80px;
   height: 80px;
   z-index: 1;
-  @media (max-width: 480px) {
-    width: 64px;
-    height: 64px;
-  }
 `;
 
 // Framer-motion Configuration

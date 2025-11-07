@@ -22,16 +22,10 @@ h2,h3,h4,h5,h6{
   font-family:'Karla', sans-serif ;
   font-weight:500;
 }
-@media (max-width: 768px) {
-  height: 100dvh;
-}
 `
 
 const Container = styled.div`
 padding: 2rem;
-@media (max-width: 768px) {
-  padding: 1.25rem;
-}
 `
 
 const Contact = styled.a`
@@ -41,10 +35,6 @@ top: 2rem;
 right: calc(1rem + 2vw);
 text-decoration: none;
 z-index:1;
-@media (max-width: 768px) {
-  top: 1rem;
-  right: 1rem;
-}
 `
 const BLOG = styled(NavLink)`
 color: ${props => props.theme.text};
@@ -54,12 +44,6 @@ right: calc(1rem + 2vw);
 transform: rotate(90deg) translate(-50%, -50%);
 text-decoration: none;
 z-index:1;
-@media (max-width: 768px) {
-  top: auto;
-  bottom: 6rem;
-  right: 1rem;
-  transform: none;
-}
 `
 const WORK = styled(NavLink)`
 color: ${props => props.click ? props.theme.body : props.theme.text};
@@ -70,12 +54,6 @@ left: calc(1rem + 2vw);
 transform: translate(-50%, -50%) rotate(-90deg) ;
 text-decoration: none;
 z-index:1;
-@media (max-width: 768px) {
-  top: auto;
-  bottom: 6rem;
-  left: 1rem;
-  transform: none;
-}
 `
 
 const BottomBar = styled.div`
@@ -87,28 +65,17 @@ width: 100%;
 
 display: flex;
 justify-content: space-evenly;
-@media (max-width: 768px) {
-  bottom: 1rem;
-  justify-content: space-between;
-  padding: 0 1rem;
-}
 `
 
 const ABOUT = styled(NavLink)`
 color: ${props => props.click ? props.theme.body : props.theme.text};
 text-decoration: none;
 z-index:1;
-@media (max-width: 768px) {
-  margin-right: 1rem;
-}
 `
 const SKILLS = styled(NavLink)`
 color: ${props => props.theme.text};
 text-decoration: none;
 z-index:1;
-@media (max-width: 768px) {
-  margin-left: 1rem;
-}
 `
 
 const rotate = keyframes`
@@ -144,10 +111,6 @@ transition: all 1s ease;
     display: ${props => props.click ? 'none' :'inline-block'  };
     padding-top: 1rem;
 }
-@media (max-width: 768px) {
-  top: ${props => props.click ? '86%' :'48%'};
-  left: ${props => props.click ? '85%' :'50%'};
-}
 `
 
 const DarkDiv = styled.div`
@@ -160,10 +123,6 @@ width: ${props => props.click ? '50%' : '0%'};
 height: ${props => props.click ? '100%' : '0%'};
 z-index:1;
 transition: height 0.5s ease, width 1s ease 0.5s;
-@media (max-width: 768px) {
-  right: 0;
-  width: ${props => props.click ? '100%' : '0%'};
-}
 `
 
 

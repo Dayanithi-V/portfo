@@ -16,11 +16,6 @@ width: 100vw;
 height:100vh;
 position: relative;
 overflow: hidden;
-@media (max-width: 768px) {
- height: auto;
- min-height: 100vh;
- padding-bottom: 4rem;
-}
 `
 const float = keyframes`
 0% { transform: translateY(-10px) }
@@ -37,14 +32,6 @@ animation: ${float} 4s ease infinite;
 img{
     width: 100%;
     height: auto;
-}
-@media (max-width: 768px) {
- right: 2rem;
- top: 2rem;
- width: 32vw;
-}
-@media (max-width: 480px) {
- display: none;
 }
 `
 const Main =  styled.div`
@@ -66,27 +53,6 @@ const Main =  styled.div`
   top: 10rem;
   font-family: 'Ubuntu Mono', monospace;
   font-style: italic;
-  @media (max-width: 1024px) {
-    width: 60vw;
-    left: 3rem;
-  }
-  @media (max-width: 768px) {
-    position: relative;
-    width: 86vw;
-    height: auto;
-    left: 50%;
-    top: 8rem;
-    transform: translateX(-50%);
-    font-size: calc(0.8rem + 1vw);
-    padding: 1.5rem;
-    text-align: left;
-  }
-  @media (max-width: 480px) {
-    top: 6rem;
-    width: 90vw;
-    padding: 1.25rem;
-    font-size: calc(0.9rem + 0.8vw);
-  }
 `
 
 
