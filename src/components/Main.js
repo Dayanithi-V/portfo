@@ -51,12 +51,9 @@ right: calc(1rem + 2vw);
 transform: rotate(90deg) translate(-50%, -50%);
 text-decoration: none;
 z-index:1;
- .mobile-label{ display:none; }
 @media (max-width: 768px) {
   right: 1rem;
   transform: rotate(90deg) translate(-50%, -50%);
-  .desktop-label{ display:none; }
-  .mobile-label{ display:inline; }
 }
 `
 const WORK = styled(NavLink)`
@@ -68,12 +65,9 @@ left: calc(1rem + 2vw);
 transform: translate(-50%, -50%) rotate(-90deg) ;
 text-decoration: none;
 z-index:1;
- .mobile-label{ display:none; }
 @media (max-width: 768px) {
   left: 1rem;
   transform: translate(-50%, -50%) rotate(-90deg);
-  .desktop-label{ display:none; }
-  .mobile-label{ display:inline; }
 }
 `
 
@@ -85,9 +79,9 @@ left: 1rem;
 transform: translate(-50%, -50%) rotate(-90deg);
 text-decoration: none;
 z-index:1;
-display:none;
+display: none; /* keep desktop unchanged */
 @media (max-width: 768px) {
-  display:block;
+  display: block; /* mobile only */
 }
 `
 
@@ -221,8 +215,7 @@ const Main = () => {
                 whileHover={{scale: 1.1}}
                 whileTap={{scale: 0.9}}
                 >
-                    <span className="desktop-label">Blog</span>
-                    <span className="mobile-label">Feats</span>
+                    Blog
                 </motion.h2>
             </BLOG>
             <WORK to="/work" click={+click}>
@@ -238,8 +231,7 @@ const Main = () => {
                  whileHover={{scale: 1.1}}
                 whileTap={{scale: 0.9}}
                 >
-                    <span className="desktop-label">Work</span>
-                    <span className="mobile-label">Projects</span>
+                    Work
                 </motion.h2>
             </WORK>
             <RESUME to="/about">
